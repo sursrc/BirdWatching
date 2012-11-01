@@ -92,13 +92,13 @@
 		D6557E4116426CD900D41D64 /* BirdWatching */ = {
 			isa = PBXGroup;
 			children = (
+				D6557E5316426CD900D41D64 /* MainStoryboard.storyboard */,
 				D6557E6116426D0E00D41D64 /* BirdSighting.h */,
 				D6557E6216426D0E00D41D64 /* BirdSighting.m */,
 				D6557E6416426DDD00D41D64 /* BirdSightingDataController.h */,
 				D6557E6516426DDD00D41D64 /* BirdSightingDataController.m */,
 				D6557E4A16426CD900D41D64 /* BirdsAppDelegate.h */,
 				D6557E4B16426CD900D41D64 /* BirdsAppDelegate.m */,
-				D6557E5316426CD900D41D64 /* MainStoryboard.storyboard */,
 				D6557E5616426CD900D41D64 /* BirdsMasterViewController.h */,
 				D6557E5716426CD900D41D64 /* BirdsMasterViewController.m */,
 				D6557E5916426CD900D41D64 /* BirdsDetailViewController.h */,
