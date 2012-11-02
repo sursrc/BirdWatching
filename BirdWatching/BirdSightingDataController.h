@@ -5,6 +5,7 @@
 
 @property (nonatomic, copy) NSMutableArray *masterBirdSightingList;
 
+
 - (NSUInteger)countOfList;
 - (BirdSighting *)objectInListAtIndex:(NSUInteger)theIndex;
 - (void)addBirdSightingWithName:(NSString *)inputBirdName location:(NSString *)inputLocation;

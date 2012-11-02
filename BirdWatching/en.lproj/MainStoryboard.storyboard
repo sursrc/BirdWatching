@@ -62,7 +62,13 @@
                             <outlet property="delegate" destination="12" id="15"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Bird Sightings" id="36"/>
+                    <navigationItem key="navigationItem" title="Bird Sightings" id="36">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="KRn-ng-n4Q">
+                            <connections>
+                                <segue destination="aPX-e5-7CR" kind="modal" identifier="ShowAddSightingView" id="qM2-Fl-4MC"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="17" sceneMemberID="firstResponder"/>
             </objects>
@@ -182,10 +188,10 @@
             </objects>
             <point key="canvasLocation" x="952" y="64"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Add Sighting View Controller-->
         <scene sceneID="kzk-hZ-Sx8">
             <objects>
-                <tableViewController id="m8Y-Se-wxe" sceneMemberID="viewController">
+                <tableViewController id="m8Y-Se-wxe" customClass="AddSightingViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="YBP-zS-IHV">
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -193,7 +199,7 @@
                         <sections>
                             <tableViewSection id="JEd-jd-kUp">
                                 <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="NOH-HY-wtE">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="gray" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="NOH-HY-wtE">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -211,6 +217,9 @@
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="done"/>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="m8Y-Se-wxe" id="8nE-Vc-GB0"/>
+                                                    </connections>
                                                 </textField>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -240,6 +249,9 @@
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="done"/>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="m8Y-Se-wxe" id="gMS-oC-cDZ"/>
+                                                    </connections>
                                                 </textField>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -260,13 +272,25 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="biJ-OP-k2y">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="B88-pH-QZy"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="hJj-sW-N3F"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="B88-pH-QZy">
+                            <connections>
+                                <action selector="cancel:" destination="m8Y-Se-wxe" id="2K0-E5-yaD"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="hJj-sW-N3F">
+                            <connections>
+                                <action selector="done:" destination="m8Y-Se-wxe" id="nkm-Uc-DwV"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="birdNameInput" destination="aLN-ql-dlc" id="4c3-I5-mTd"/>
+                        <outlet property="locationInput" destination="ubH-Iw-pi3" id="iNe-UU-b9D"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UuZ-hV-9N5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="952" y="-652"/>
+            <point key="canvasLocation" x="1458" y="-858"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Ril-lo-5Tc">
@@ -284,26 +308,9 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Z60-S2-Tua" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="459" y="-652"/>
+            <point key="canvasLocation" x="965" y="-858"/>
         </scene>
     </scenes>
-    <classes>
-        <class className="BirdsDetailViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/BirdsDetailViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="birdNameLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="dateLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="detailDescriptionLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="locationLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="BirdsMasterViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/BirdsMasterViewController.h"/>
-        </class>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

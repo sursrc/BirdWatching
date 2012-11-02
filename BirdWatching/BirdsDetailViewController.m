@@ -21,7 +21,6 @@
 
 - (void)configureView
 {
-    // Update the user interface for the detail item.
     BirdSighting *theSighting = self.sighting;
     
     static NSDateFormatter *formatter = nil;
@@ -29,30 +28,12 @@
         formatter = [[NSDateFormatter alloc] init];
         [formatter setDateStyle:NSDateFormatterMediumStyle];
     }
+    
     if (theSighting) {
         self.birdNameLabel.text = theSighting.name;
         self.locationLabel.text = theSighting.location;
         self.dateLabel.text = [formatter stringFromDate:(NSDate *)theSighting.date];
     }
-}
-
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
-    [self configureView];
-}
-
-- (void)viewDidUnload
-{
-    self.sighting = nil;
-    [super viewDidUnload];
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 @end

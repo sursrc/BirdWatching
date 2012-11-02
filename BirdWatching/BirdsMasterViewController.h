@@ -4,6 +4,7 @@
 
 @interface BirdsMasterViewController : UITableViewController
 
+
 @property (strong, nonatomic) BirdSightingDataController *dataController;
 
 @end

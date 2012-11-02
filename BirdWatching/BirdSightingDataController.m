@@ -9,23 +9,17 @@
 
 @synthesize masterBirdSightingList = _masterBirdSightingList;
 
-- (void)initializeDefaultDataList {
-    NSMutableArray *sightingList = [[NSMutableArray alloc] init];
-    self.masterBirdSightingList = sightingList;
-    [self addBirdSightingWithName:@"Pigeon" location:@"Everywhere"];
+- (id)init {
+    if (self = [super init]) {
+        [self initializeDefaultDataList];
+    }
+    return self;
 }
 
 - (void)setMasterBirdSightingList:(NSMutableArray *)newList {
     if (_masterBirdSightingList != newList) {
         _masterBirdSightingList = [newList mutableCopy];
     }
-}
-
-- (id)init {
-    if (self = [super init]) {
-        [self initializeDefaultDataList];
-    }
-    return self;
 }
 
 - (NSUInteger)countOfList {
@@ -36,12 +30,20 @@
     return [self.masterBirdSightingList objectAtIndex:theIndex];
 }
 
+
 - (void)addBirdSightingWithName:(NSString *)inputBirdName location:(NSString *)inputLocation {
     BirdSighting *sighting;
     NSDate *today = [NSDate date];
     
     sighting = [[BirdSighting alloc] initWithName:inputBirdName location:inputLocation date:today];
     [self.masterBirdSightingList addObject:sighting];
+    
 }
 
+- (void)initializeDefaultDataList {
+    NSMutableArray *sightingList = [[NSMutableArray alloc] init];
+    
+    self.masterBirdSightingList = sightingList;
+    [self addBirdSightingWithName:@"Pigeon" location:@"Everywhere"];
+}
 @end
